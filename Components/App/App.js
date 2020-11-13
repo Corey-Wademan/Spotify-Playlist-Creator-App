@@ -31,13 +31,16 @@ export default class App extends React.Component {
                     name: 'name1',
                     artist: 'artist1',
                     album: 'album1',
-                    id: 'id1',
+                    id: 'track 1',
                 }
             ]
         }
 
         this.addTrack = this.addTrack.bind(this);
         this.removeTrack = this.removeTrack.bind(this);
+        this.updatePlaylistName = this.updatePlaylistName.bind(this);
+        this.savePlaylist = this.savePlaylist.bind(this);
+        this.search = this.search.bind(this);
     };
 
     //methods
@@ -55,11 +58,27 @@ export default class App extends React.Component {
 
     removeTrack(track) {
         let tracks = this.state.playListTracks;
-        tracks.filter(savedTrack => savedTrack.id !== track.id);
-        this.set({
+        tracks = tracks.filter(savedTrack => savedTrack.id !== track.id);
+        this.setState({
             playListTracks: tracks
         })
     };
+
+    updatePlaylistName(name) {
+        this.setState({
+            playListName: name
+        })
+    };
+
+    savePlaylist() {
+        const trackURIs = this.state.playListTracks.map(track => track);
+    };
+
+    search(searchTerm) {  
+        console.log(searchTerm)
+    };
+
+    
 
 
     render() {
@@ -67,7 +86,9 @@ export default class App extends React.Component {
             <div>
                 <h1>Ja<span className="highlight">mmm</span>ing</h1>
                 <div className="App">
-                <SearchBar />
+                <SearchBar 
+                    onSearch={this.search}
+                />
                     <div className="App-playlist">
                         <SearchResults 
                             searchResults={this.state.searchResults} 
@@ -77,6 +98,8 @@ export default class App extends React.Component {
                             playListName={this.state.playListName}
                             playListTracks={this.state.playListTracks}
                             onRemove={this.removeTrack}
+                            onNameChange={this.updatePlaylistName}
+                            onSave={this.savePlaylist}
                             />
                     </div>
                 </div>
@@ -84,3 +107,5 @@ export default class App extends React.Component {
         )
     }
 }
+
+
