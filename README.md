@@ -1,1 +1,1 @@
-# Jamming-App-SpotifyAPI
+# Jamming-App
