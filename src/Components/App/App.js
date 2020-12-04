@@ -4,7 +4,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 import Spotify from '../Util/Spotify';
-
+require('dotenv').config();
 
 export default class App extends React.Component {
     constructor(props) {
@@ -62,16 +62,13 @@ export default class App extends React.Component {
 
     search(searchTerm) {  
         Spotify.search(searchTerm).then(searchResults => {
-            this.setState({
-                searchResults: searchResults
-            })
+                this.setState({
+                    searchResults: searchResults
+                });
         });
     };
 
-    
-
-
-    render() {
+    render() { 
         return (
             <div>
                 <h1>Ja<span className="highlight">mmm</span>ing</h1>
@@ -80,10 +77,11 @@ export default class App extends React.Component {
                     onSearch={this.search}
                 />
                     <div className="App-playlist">
-                        <SearchResults 
+                        <SearchResults      
                             searchResults={this.state.searchResults} 
                             onAdd={this.addTrack}
-                            />
+                            onSearch={this.search}
+                            />                        
                         <Playlist 
                             playListName={this.state.playListName}
                             playListTracks={this.state.playListTracks}
