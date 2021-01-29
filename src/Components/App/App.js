@@ -71,7 +71,7 @@ export default class App extends React.Component {
     render() { 
         return (
             <div>
-                <h1>Gr<span className='highlight'>ooo</span>vin Spotify Playlist Creator</h1>
+                <h1><span className='highlight'>Spotify</span>Playlist Creator</h1>
                 <div className="App">
                 <SearchBar 
                     onSearch={this.search}
