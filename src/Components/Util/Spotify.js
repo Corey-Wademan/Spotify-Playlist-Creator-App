@@ -1,6 +1,6 @@
 let accessToken;
 const clientId = `${process.env.REACT_APP_CLIENTID}`;
-const redirectURI = 'https://jamming-playlist-creator.herokuapp.com/'
+const redirectURI = 'https://groovin-playlist-creator.herokuapp.com/'
 
 const Spotify = {
     getAccessToken() {
