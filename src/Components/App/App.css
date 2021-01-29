@@ -10,7 +10,7 @@ html {
 
 h1 {
   padding: .77rem 0;
-  background-color: #010c3f;
+  background-color: #36ecc47e;
   text-align: center;
   font-family: 'Poppins', sans-serif;
   font-size: 1.88rem;
@@ -41,7 +41,7 @@ h2 {
 .App-playlist {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 100%; 
 }
 
 @media only screen and (max-width: 1020px) {
